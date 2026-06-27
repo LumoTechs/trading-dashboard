@@ -1,0 +1,116 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="refresh" content="60">
+<title>Trading · Panel Maestro</title>
+<style>
+:root{--bg:#0c0e12;--card:#15181f;--line:#23262f;--txt:#e7e9ee;--mut:#8b909c;--pos:#3fd18b;--neg:#ff6b6b;--acc:#94a338;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--txt);font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;padding:26px 30px 40px;max-width:1500px;margin:0 auto}
+.head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px}
+h1{font-size:22px;margin:0;font-weight:650;letter-spacing:-.3px}
+.upd{color:var(--mut);font-size:13px}
+.paper{display:inline-block;background:#1d2230;color:#8fb3ff;border:1px solid #2c3550;padding:3px 11px;border-radius:20px;font-size:12px;margin:10px 0 18px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:18px}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 16px}
+.kk{display:block;font-size:11px;color:var(--mut);letter-spacing:.3px}
+.kv{display:block;font-size:22px;font-weight:700;margin-top:2px}
+.kv small{font-size:12px;font-weight:400;color:var(--mut)}
+.banner{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;background:var(--card);border:1px solid var(--line);border-left:4px solid var(--neg);border-radius:14px;padding:16px 22px;margin-bottom:18px}
+.banner.pos{border-left-color:var(--pos)}
+.bk{font-size:11px;color:var(--mut);letter-spacing:.5px}
+.bv{font-size:21px;font-weight:700;margin:3px 0}
+.bd{font-size:13px}
+.br{min-width:230px}
+.cmprow{display:grid;grid-template-columns:54px 1fr auto 1fr;gap:8px;font-size:12.5px;padding:1px 0}
+.cmprow b{font-weight:650}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin-bottom:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px}
+.chead{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
+.ctitle{font-size:14px;color:var(--txt);font-weight:600}
+.ctitle small{font-weight:400;color:var(--mut)}
+.hwrap{display:flex;align-items:center;gap:6px;white-space:nowrap}
+.dot{width:8px;height:8px;border-radius:50%;display:inline-block}
+.dot.ok{background:var(--pos)} .dot.bad{background:var(--neg)} .dot.off{background:var(--mut)}
+.htxt{font-size:11px;color:var(--mut)}
+.equity{font-size:30px;font-weight:700;letter-spacing:-.5px;margin-top:10px}
+.sub{font-size:14px;font-weight:600;margin-top:2px}
+.muted{color:var(--mut);font-weight:400}
+.pos{color:var(--pos)} .neg{color:var(--neg)}
+.spark{width:100%;height:44px;display:block;margin:10px 0 2px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px 10px;margin:12px 0 4px;border-top:1px solid var(--line);padding-top:12px}
+.stats .k{display:block;font-size:10.5px;color:var(--mut);letter-spacing:.3px}
+.stats .v{display:block;font-size:16px;font-weight:650}
+.note{font-size:12.5px;color:var(--mut);margin-top:12px;line-height:1.45}
+.prog{height:7px;background:#222631;border:1px solid #2a2f3a;border-radius:6px;margin-top:14px;overflow:hidden}
+.progbar{height:100%;background:var(--acc)}
+.progtxt{font-size:11px;color:var(--mut);margin-top:5px}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 20px}
+.panel h2{font-size:12px;color:var(--mut);letter-spacing:.5px;margin:0 0 10px;font-weight:600}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{text-align:left;color:var(--mut);font-weight:500;font-size:11px;padding:4px 6px;border-bottom:1px solid var(--line)}
+td{padding:6px;border-bottom:1px solid #1b1e26}
+.sig{font-size:11px;padding:1px 8px;border-radius:10px;background:#1d2230}
+.sig.pos{color:var(--pos)} .sig.neg{color:var(--neg)}
+footer{color:var(--mut);font-size:12px;margin-top:24px;line-height:1.6}
+code{background:#1b1e26;padding:1px 6px;border-radius:5px}
+</style></head><body>
+<div class="head"><h1>Panel Maestro · Trading</h1><div class="upd">Actualizado 27/06/2026 20:20 · auto-refresco 60s</div></div>
+<span class="paper">● TODO EN PAPER — cero dinero real en juego</span>
+
+<div class="kpis">
+  <div class="kpi"><span class="kk">Bots activos</span><span class="kv">3 <small>en paper</small></span></div>
+  <div class="kpi"><span class="kk">Operaciones cerradas</span><span class="kv">12</span></div>
+  <div class="kpi"><span class="kk">God Candidate</span><span class="kv pos">+0.9%</span></div>
+  <div class="kpi"><span class="kk">P&amp;L realizado (GC)</span><span class="kv pos">+1.06€</span></div>
+  <div class="kpi"><span class="kk">Régimen</span><span class="kv neg">CONTRACCIÓN</span></div>
+</div>
+
+    <div class="banner neg">
+      <div class="bl">
+        <div class="bk">RÉGIMEN DE LIQUIDEZ</div>
+        <div class="bv">🔴 CONTRACCION</div>
+        <div class="bd">USDT supply 30d -2.25% · Fear&amp;Greed 15 · BTC $60,337</div>
+        <div class="bd muted">Auto-liquidity (dry): (dry) mantener</div>
+      </div>
+      <div class="br"><div class="bk">AUTOPRUEBA (base 100)</div><div class="cmprow"><span>06-25</span><b>100.0</b><span class="muted">vs B&amp;H</span><b>100.0</b></div><div class="cmprow"><span>06-26</span><b>100.0</b><span class="muted">vs B&amp;H</span><b>101.78</b></div><div class="cmprow"><span>06-27</span><b>100.0</b><span class="muted">vs B&amp;H</span><b>101.35</b></div></div>
+    </div>
+<div class="grid">
+    <div class="card">
+      <div class="chead"><div class="ctitle">🟡 God Candidate <small>edge posicionamiento</small></div><div class="hwrap"><span class="dot ok"></span><span class="htxt">hace 11m</span></div></div>
+      <div class="equity pos">141.31 €</div>
+      <div class="sub pos">+0.94% <span class="muted">· base 140 €</span></div>
+      <svg class="spark" viewBox="0 0 240 58" preserveAspectRatio="none"><polygon points="0,58 0.0,35.6 20.0,46.6 40.0,51.6 60.0,55.0 80.0,51.3 100.0,41.0 120.0,4.6 140.0,15.7 160.0,10.1 180.0,3.0 200.0,12.3 220.0,16.0 240.0,16.2 240,58" fill="#3fd18b" opacity="0.08"/><polyline points="0.0,35.6 20.0,46.6 40.0,51.6 60.0,55.0 80.0,51.3 100.0,41.0 120.0,4.6 140.0,15.7 160.0,10.1 180.0,3.0 200.0,12.3 220.0,16.0 240.0,16.2" fill="none" stroke="#3fd18b" stroke-width="2"/></svg>
+      <div class="stats"><div><span class="k">Cerradas</span><span class="v">11</span></div><div><span class="k">Win rate</span><span class="v">45%</span></div><div><span class="k">Abiertas</span><span class="v">6</span></div><div><span class="k">Realizado</span><span class="v">+1.06€</span></div><div><span class="k">No realizado</span><span class="v neg">-0.16€</span></div><div><span class="k">Mejor/Peor</span><span class="v">+14/-4%</span></div></div>
+      <div class="prog"><div class="progbar" style="width:36%"></div></div><div class="progtxt">11/30 cerradas para considerarlo válido</div>
+      <div class="note">El único que va sumando. No es válido hasta ≥30 cerradas con WR~55%. Aún es pronto. <a href="god_candidate.html" style="color:#8fb3ff">ver detalle y posiciones →</a></div>
+    </div>
+    <div class="card">
+      <div class="chead"><div class="ctitle">🤖 Escáner de Alts <small>spot largo · paper</small></div><div class="hwrap"><span class="dot ok"></span><span class="htxt">hace 8m</span></div></div>
+      <div class="equity neg">995.77 €</div>
+      <div class="sub neg">-0.42% <span class="muted">· base 1,000 €</span></div>
+      
+      <div class="stats"><div><span class="k">Cerradas</span><span class="v">1</span></div><div><span class="k">Win rate</span><span class="v">0%</span></div><div><span class="k">Abiertas</span><span class="v">0</span></div><div><span class="k">Vigila</span><span class="v">29 alts</span></div></div>
+      
+      <div class="note">Parado: régimen BTC en miedo + filtros estrictos. Solo 1 op histórica = ruido.</div>
+    </div>
+    <div class="card">
+      <div class="chead"><div class="ctitle">📈 Forward-test symmetric <small>precio</small></div><div class="hwrap"><span class="dot ok"></span><span class="htxt">hace 18m</span></div></div>
+      <div class="equity pos">140.00 €</div>
+      <div class="sub pos">+0.00% <span class="muted">· base 140 €</span></div>
+      
+      <div class="stats"><div><span class="k">Cerradas</span><span class="v">0</span></div><div><span class="k">Win rate</span><span class="v">0%</span></div><div><span class="k">Abierta</span><span class="v">sí</span></div></div>
+      
+      <div class="note">Corre 1×/hora (:02). 1 operación abierta, sin cerrar.<br><span class="muted">posición: ETCUSDT S entry=7.32366</span></div>
+    </div></div>
+<div class="cols">
+  <div class="panel"><h2>GOD CANDIDATE · ÚLTIMAS OPERACIONES</h2>
+    <table><tr><th>Par</th><th>Dir</th><th>Ret</th><th>P&amp;L</th></tr><tr><td>ADAUSDT</td><td>LONG</td><td class="neg">-1.44%</td><td class="neg">-0.26€</td></tr><tr><td>ADAUSDT</td><td>LONG</td><td class="neg">-1.38%</td><td class="neg">-0.24€</td></tr><tr><td>SEIUSDT</td><td>LONG</td><td class="neg">-3.51%</td><td class="neg">-0.62€</td></tr><tr><td>OPUSDT</td><td>SHORT</td><td class="pos">+2.69%</td><td class="pos">+0.48€</td></tr><tr><td>INJUSDT</td><td>LONG</td><td class="pos">+2.11%</td><td class="pos">+0.37€</td></tr><tr><td>AVAXUSDT</td><td>SHORT</td><td class="neg">-4.17%</td><td class="neg">-0.74€</td></tr><tr><td>INJUSDT</td><td>LONG</td><td class="pos">+13.91%</td><td class="pos">+2.43€</td></tr><tr><td>ADAUSDT</td><td>LONG</td><td class="pos">+3.98%</td><td class="pos">+0.69€</td></tr><tr><td>XRPUSDT</td><td>LONG</td><td class="pos">+1.43%</td><td class="pos">+0.25€</td></tr><tr><td>ETHUSDT</td><td>SHORT</td><td class="neg">-1.32%</td><td class="neg">-0.23€</td></tr><tr><td>BTCUSDT</td><td>SHORT</td><td class="neg">-1.93%</td><td class="neg">-0.34€</td></tr><tr><td>AVAXUSDT</td><td>SHORT</td><td class="neg">-4.17%</td><td class="neg">-0.73€</td></tr></table></div>
+  <div class="panel"><h2>POSICIONAMIENTO FUTURES · SEÑALES</h2>
+    <table><tr><th>Par</th><th>Retail L/S</th><th>Top L/S</th><th>Señal</th></tr><tr><td>SEIUSDT</td><td>0.88</td><td>1.07</td><td></td></tr><tr><td>TIAUSDT</td><td>1.57</td><td>1.63</td><td><span class="sig neg">retail muy largo → baja</span></td></tr><tr><td>ARBUSDT</td><td>1.02</td><td>1.30</td><td></td></tr><tr><td>OPUSDT</td><td>1.72</td><td>1.34</td><td><span class="sig neg">retail muy largo → baja</span></td></tr><tr><td>APTUSDT</td><td>0.99</td><td>2.65</td><td></td></tr><tr><td>SUIUSDT</td><td>2.21</td><td>2.18</td><td><span class="sig neg">retail muy largo → baja</span></td></tr><tr><td>INJUSDT</td><td>0.72</td><td>1.21</td><td></td></tr><tr><td>NEARUSDT</td><td>0.84</td><td>1.92</td><td></td></tr><tr><td>ATOMUSDT</td><td>1.03</td><td>1.78</td><td></td></tr><tr><td>DOTUSDT</td><td>1.53</td><td>2.15</td><td><span class="sig neg">retail muy largo → baja</span></td></tr><tr><td>LTCUSDT</td><td>2.22</td><td>2.00</td><td><span class="sig neg">retail muy largo → baja</span></td></tr><tr><td>LINKUSDT</td><td>1.65</td><td>2.09</td><td><span class="sig neg">retail muy largo → baja</span></td></tr></table></div>
+</div>
+<footer>
+Conclusión honesta: el único edge real validado es pequeño y lento. Nada justifica meter dinero real todavía.<br>
+Regenerar: <code>python3 scripts/build_master_dashboard.py</code>
+</footer>
+</body></html>
