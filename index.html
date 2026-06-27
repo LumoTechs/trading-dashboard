@@ -1,122 +1,83 @@
 <!doctype html><html lang="es"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta http-equiv="refresh" content="60">
-<meta name="theme-color" content="#0c0e12">
+<meta name="theme-color" content="#090b10">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="Lumo Trading">
-<meta name="description" content="Panel maestro de bots de trading paper de LumoTechs.">
+<meta name="apple-mobile-web-app-title" content="God Candidate">
+<meta name="description" content="Panel técnico de God Candidate en paper.">
 <link rel="icon" type="image/svg+xml" href="dashboard-icon.svg">
 <link rel="manifest" href="manifest.webmanifest">
-<title>Lumo Trading · Panel Maestro</title>
+<title>God Candidate · Lumo Trading</title>
 <style>
-:root{--bg:#0c0e12;--card:#15181f;--line:#23262f;--txt:#e7e9ee;--mut:#8b909c;--pos:#3fd18b;--neg:#ff6b6b;--acc:#94a338;}
+:root{--bg:#090b10;--panel:#141820;--panel2:#10131a;--line:#252a34;--txt:#edf0f5;--mut:#8f96a3;--pos:#43d18d;--neg:#ff6464;--warn:#f4b84a;--blue:#8fb3ff;}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--txt);font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;padding:26px 30px 40px;max-width:1500px;margin:0 auto}
-.head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px}
-h1{font-size:22px;margin:0;font-weight:650;letter-spacing:-.3px}
-.upd{color:var(--mut);font-size:13px}
-.paper{display:inline-block;background:#1d2230;color:#8fb3ff;border:1px solid #2c3550;padding:3px 11px;border-radius:20px;font-size:12px;margin:10px 0 18px}
-.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:18px}
-.kpi{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 16px}
-.kk{display:block;font-size:11px;color:var(--mut);letter-spacing:.3px}
-.kv{display:block;font-size:22px;font-weight:700;margin-top:2px}
-.kv small{font-size:12px;font-weight:400;color:var(--mut)}
-.banner{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;background:var(--card);border:1px solid var(--line);border-left:4px solid var(--neg);border-radius:14px;padding:16px 22px;margin-bottom:18px}
-.banner.pos{border-left-color:var(--pos)}
-.bk{font-size:11px;color:var(--mut);letter-spacing:.5px}
-.bv{font-size:21px;font-weight:700;margin:3px 0}
-.bd{font-size:13px}
-.br{min-width:230px}
-.cmprow{display:grid;grid-template-columns:54px 1fr auto 1fr;gap:8px;font-size:12.5px;padding:1px 0}
-.cmprow b{font-weight:650}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin-bottom:18px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px}
-.chead{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
-.ctitle{font-size:14px;color:var(--txt);font-weight:600}
-.ctitle small{font-weight:400;color:var(--mut)}
-.hwrap{display:flex;align-items:center;gap:6px;white-space:nowrap}
-.dot{width:8px;height:8px;border-radius:50%;display:inline-block}
-.dot.ok{background:var(--pos)} .dot.bad{background:var(--neg)} .dot.off{background:var(--mut)}
-.htxt{font-size:11px;color:var(--mut)}
-.equity{font-size:30px;font-weight:700;letter-spacing:-.5px;margin-top:10px}
-.sub{font-size:14px;font-weight:600;margin-top:2px}
-.muted{color:var(--mut);font-weight:400}
-.pos{color:var(--pos)} .neg{color:var(--neg)}
-.spark{width:100%;height:44px;display:block;margin:10px 0 2px}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px 10px;margin:12px 0 4px;border-top:1px solid var(--line);padding-top:12px}
-.stats .k{display:block;font-size:10.5px;color:var(--mut);letter-spacing:.3px}
-.stats .v{display:block;font-size:16px;font-weight:650}
-.note{font-size:12.5px;color:var(--mut);margin-top:12px;line-height:1.45}
-.prog{height:7px;background:#222631;border:1px solid #2a2f3a;border-radius:6px;margin-top:14px;overflow:hidden}
-.progbar{height:100%;background:var(--acc)}
-.progtxt{font-size:11px;color:var(--mut);margin-top:5px}
-.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px}
-.panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 20px}
-.panel h2{font-size:12px;color:var(--mut);letter-spacing:.5px;margin:0 0 10px;font-weight:600}
-table{width:100%;border-collapse:collapse;font-size:13px}
-th{text-align:left;color:var(--mut);font-weight:500;font-size:11px;padding:4px 6px;border-bottom:1px solid var(--line)}
-td{padding:6px;border-bottom:1px solid #1b1e26}
-.sig{font-size:11px;padding:1px 8px;border-radius:10px;background:#1d2230}
-.sig.pos{color:var(--pos)} .sig.neg{color:var(--neg)}
-footer{color:var(--mut);font-size:12px;margin-top:24px;line-height:1.6}
-code{background:#1b1e26;padding:1px 6px;border-radius:5px}
-</style></head><body>
-<div class="head"><h1>Lumo Trading · Panel Maestro</h1><div class="upd">Actualizado 27/06/2026 21:29 · auto-refresco 60s</div></div>
-<span class="paper">● TODO EN PAPER — cero dinero real en juego</span>
-
-<div class="kpis">
-  <div class="kpi"><span class="kk">Bots activos</span><span class="kv">3 <small>en paper</small></span></div>
-  <div class="kpi"><span class="kk">Operaciones cerradas</span><span class="kv">12</span></div>
-  <div class="kpi"><span class="kk">God Candidate</span><span class="kv pos">+0.9%</span></div>
-  <div class="kpi"><span class="kk">P&amp;L realizado (GC)</span><span class="kv pos">+1.06€</span></div>
-  <div class="kpi"><span class="kk">Régimen</span><span class="kv neg">CONTRACCIÓN</span></div>
+html{background:var(--bg)}
+body{margin:0;background:var(--bg);color:var(--txt);font:14px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;letter-spacing:0}
+.app{max-width:1440px;margin:0 auto;padding:22px 24px 34px}
+.top{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:14px}
+h1{font-size:24px;line-height:1.1;margin:0;font-weight:760;letter-spacing:0}
+.subhead{color:var(--mut);font-size:13px;margin-top:6px}
+.status{display:flex;align-items:center;gap:8px;color:var(--mut);font-size:13px;white-space:nowrap}
+.pulse{width:8px;height:8px;border-radius:50%;display:inline-block}.pulse.ok{background:var(--pos)}.pulse.warn{background:var(--warn)}.pulse.bad{background:var(--neg)}.pulse.off{background:var(--mut)}
+.badge-row{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 14px}
+.badge{border:1px solid var(--line);background:#111722;color:var(--blue);border-radius:999px;padding:4px 10px;font-size:12px}
+.hero{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(360px,.8fr);gap:14px;margin-bottom:14px}
+.panel,.kpi{background:var(--panel);border:1px solid var(--line);border-radius:8px}
+.chart{padding:18px 20px 14px}
+.chart-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:8px}
+.big{font-size:42px;font-weight:780;line-height:1;margin-top:4px}
+.delta{font-size:16px;font-weight:680;margin-top:8px}
+.curve{width:100%;height:240px;display:block;margin-top:10px}.base-line{stroke:#3b414d;stroke-width:1;stroke-dasharray:5 5}
+.kpi-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.kpi{padding:12px 14px;min-height:74px}
+.label{display:block;color:var(--mut);font-size:12px}
+.value{display:block;font-size:22px;font-weight:740;margin-top:4px}
+.detail{display:block;color:var(--mut);font-size:12px;margin-top:2px}
+.pos{color:var(--pos)}.neg{color:var(--neg)}.warn{color:var(--warn)}.muted{color:var(--mut)}
+.validation{padding:14px 16px;margin-bottom:14px;display:grid;grid-template-columns:170px 1fr 110px;gap:14px;align-items:center}
+.progress{height:10px;background:#202531;border:1px solid #303642;border-radius:999px;overflow:hidden}.bar{height:100%;background:linear-gradient(90deg,var(--warn),var(--pos));width:36%}
+.sections{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(420px,.85fr);gap:14px}
+.panel{padding:16px;margin-bottom:14px}
+h2{font-size:13px;color:var(--mut);font-weight:720;margin:0 0 11px;letter-spacing:0}
+.table-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;min-width:620px}
+th{text-align:left;color:var(--mut);font-weight:620;font-size:12px;padding:7px 8px;border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:8px;border-bottom:1px solid #20242d;white-space:nowrap}
+tr:last-child td{border-bottom:0}
+.note{color:var(--mut);font-size:12px;margin-top:10px}
+.footer{color:var(--mut);font-size:12px;margin-top:14px}
+@media (max-width:980px){.app{padding:16px 12px 28px}.hero,.sections{grid-template-columns:1fr}.kpi-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.validation{grid-template-columns:1fr}.big{font-size:34px}}
+@media (max-width:560px){.kpi-grid{grid-template-columns:1fr}.chart-head{display:block}}
+</style></head><body><main class="app">
+<div class="top">
+  <div><h1>God Candidate</h1><div class="subhead">Edge de posicionamiento · forward paper · actualizado 27/06/2026 21:41</div></div>
+  <div class="status"><span class="pulse ok"></span><span>hace 0m</span></div>
 </div>
-
-    <div class="banner neg">
-      <div class="bl">
-        <div class="bk">RÉGIMEN DE LIQUIDEZ</div>
-        <div class="bv">🔴 CONTRACCION</div>
-        <div class="bd">USDT supply 30d -2.25% · Fear&amp;Greed 15 · BTC $60,337</div>
-        <div class="bd muted">Auto-liquidity (dry): (dry) mantener</div>
-      </div>
-      <div class="br"><div class="bk">AUTOPRUEBA (base 100)</div><div class="cmprow"><span>06-25</span><b>100.0</b><span class="muted">vs B&amp;H</span><b>100.0</b></div><div class="cmprow"><span>06-26</span><b>100.0</b><span class="muted">vs B&amp;H</span><b>101.78</b></div><div class="cmprow"><span>06-27</span><b>100.0</b><span class="muted">vs B&amp;H</span><b>101.35</b></div></div>
+<div class="badge-row"><span class="badge">PAPER · cero dinero real</span><span class="badge">Riesgo 0.5% equity/op</span><span class="badge">Salida 24h o stop 4%</span></div>
+<section class="hero">
+  <div class="panel chart">
+    <div class="chart-head">
+      <div><span class="label">Equity cerrada</span><div class="big pos">141.30 €</div><div class="delta pos">+0.93% sobre base 140.00 €</div></div>
+      <div><span class="label">Marcado vivo</span><div class="value pos">141.30 €</div><span class="detail">abierto +0.00€</span></div>
     </div>
-<div class="grid">
-    <div class="card">
-      <div class="chead"><div class="ctitle">🟡 God Candidate <small>edge posicionamiento</small></div><div class="hwrap"><span class="dot ok"></span><span class="htxt">hace 0m</span></div></div>
-      <div class="equity pos">141.30 €</div>
-      <div class="sub pos">+0.93% <span class="muted">· base 140 €</span></div>
-      <svg class="spark" viewBox="0 0 240 58" preserveAspectRatio="none"><polygon points="0,58 0.0,35.6 20.0,46.6 40.0,51.6 60.0,55.0 80.0,51.3 100.0,41.0 120.0,4.6 140.0,15.7 160.0,10.1 180.0,3.0 200.0,12.3 220.0,16.0 240.0,16.2 240,58" fill="#3fd18b" opacity="0.08"/><polyline points="0.0,35.6 20.0,46.6 40.0,51.6 60.0,55.0 80.0,51.3 100.0,41.0 120.0,4.6 140.0,15.7 160.0,10.1 180.0,3.0 200.0,12.3 220.0,16.0 240.0,16.2" fill="none" stroke="#3fd18b" stroke-width="2"/></svg>
-      <div class="stats"><div><span class="k">Cerradas</span><span class="v">11</span></div><div><span class="k">Win rate</span><span class="v">45%</span></div><div><span class="k">Abiertas</span><span class="v">6</span></div><div><span class="k">Realizado</span><span class="v">+1.06€</span></div><div><span class="k">No realizado</span><span class="v pos">+0.00€</span></div><div><span class="k">Mejor/Peor</span><span class="v">+14/-4%</span></div></div>
-      <div class="prog"><div class="progbar" style="width:36%"></div></div><div class="progtxt">11/30 cerradas para considerarlo válido</div>
-      <div class="note">El único que va sumando. No es válido hasta ≥30 cerradas con WR~55%. Aún es pronto. <a href="god_candidate.html" style="color:#8fb3ff">ver detalle y posiciones →</a></div>
-    </div>
-    <div class="card">
-      <div class="chead"><div class="ctitle">🤖 Escáner de Alts <small>spot largo · paper</small></div><div class="hwrap"><span class="dot bad"></span><span class="htxt">error</span></div></div>
-      <div class="equity neg">995.77 €</div>
-      <div class="sub neg">-0.42% <span class="muted">· base 1,000 €</span></div>
-      
-      <div class="stats"><div><span class="k">Cerradas</span><span class="v">1</span></div><div><span class="k">Win rate</span><span class="v">0%</span></div><div><span class="k">Abiertas</span><span class="v">0</span></div><div><span class="k">Vigila</span><span class="v">0 alts</span></div></div>
-      
-      <div class="note">Parado: régimen BTC en miedo + filtros estrictos. Solo 1 op histórica = ruido.</div>
-    </div>
-    <div class="card">
-      <div class="chead"><div class="ctitle">📈 Forward-test symmetric <small>precio</small></div><div class="hwrap"><span class="dot bad"></span><span class="htxt">error</span></div></div>
-      <div class="equity pos">140.00 €</div>
-      <div class="sub pos">+0.00% <span class="muted">· base 140 €</span></div>
-      
-      <div class="stats"><div><span class="k">Cerradas</span><span class="v">0</span></div><div><span class="k">Win rate</span><span class="v">0%</span></div><div><span class="k">Abierta</span><span class="v">sí</span></div></div>
-      
-      <div class="note">Corre 1×/hora (:02). 1 operación abierta, sin cerrar.<br><span class="muted">posición: ETCUSDT -1 entry=7.32366</span></div>
-    </div></div>
-<div class="cols">
-  <div class="panel"><h2>GOD CANDIDATE · ÚLTIMAS OPERACIONES</h2>
-    <table><tr><th>Par</th><th>Dir</th><th>Ret</th><th>P&amp;L</th></tr><tr><td>ADAUSDT</td><td>LONG</td><td class="neg">-1.44%</td><td class="neg">-0.26€</td></tr><tr><td>ADAUSDT</td><td>LONG</td><td class="neg">-1.38%</td><td class="neg">-0.24€</td></tr><tr><td>SEIUSDT</td><td>LONG</td><td class="neg">-3.51%</td><td class="neg">-0.62€</td></tr><tr><td>OPUSDT</td><td>SHORT</td><td class="pos">+2.69%</td><td class="pos">+0.48€</td></tr><tr><td>INJUSDT</td><td>LONG</td><td class="pos">+2.11%</td><td class="pos">+0.37€</td></tr><tr><td>AVAXUSDT</td><td>SHORT</td><td class="neg">-4.17%</td><td class="neg">-0.74€</td></tr><tr><td>INJUSDT</td><td>LONG</td><td class="pos">+13.91%</td><td class="pos">+2.43€</td></tr><tr><td>ADAUSDT</td><td>LONG</td><td class="pos">+3.98%</td><td class="pos">+0.69€</td></tr><tr><td>XRPUSDT</td><td>LONG</td><td class="pos">+1.43%</td><td class="pos">+0.25€</td></tr><tr><td>ETHUSDT</td><td>SHORT</td><td class="neg">-1.32%</td><td class="neg">-0.23€</td></tr><tr><td>BTCUSDT</td><td>SHORT</td><td class="neg">-1.93%</td><td class="neg">-0.34€</td></tr><tr><td>AVAXUSDT</td><td>SHORT</td><td class="neg">-4.17%</td><td class="neg">-0.73€</td></tr></table></div>
-  <div class="panel"><h2>POSICIONAMIENTO FUTURES · SEÑALES</h2>
-    <table><tr><th>Par</th><th>Retail L/S</th><th>Top L/S</th><th>Señal</th></tr><tr><td>SEIUSDT</td><td>0.88</td><td>1.07</td><td></td></tr><tr><td>TIAUSDT</td><td>1.57</td><td>1.63</td><td><span class="sig neg">retail muy largo → baja</span></td></tr><tr><td>ARBUSDT</td><td>1.02</td><td>1.30</td><td></td></tr><tr><td>OPUSDT</td><td>1.72</td><td>1.34</td><td><span class="sig neg">retail muy largo → baja</span></td></tr><tr><td>APTUSDT</td><td>0.99</td><td>2.65</td><td></td></tr><tr><td>SUIUSDT</td><td>2.21</td><td>2.18</td><td><span class="sig neg">retail muy largo → baja</span></td></tr><tr><td>INJUSDT</td><td>0.72</td><td>1.21</td><td></td></tr><tr><td>NEARUSDT</td><td>0.84</td><td>1.92</td><td></td></tr><tr><td>ATOMUSDT</td><td>1.03</td><td>1.78</td><td></td></tr><tr><td>DOTUSDT</td><td>1.53</td><td>2.15</td><td><span class="sig neg">retail muy largo → baja</span></td></tr><tr><td>LTCUSDT</td><td>2.22</td><td>2.00</td><td><span class="sig neg">retail muy largo → baja</span></td></tr><tr><td>LINKUSDT</td><td>1.65</td><td>2.09</td><td><span class="sig neg">retail muy largo → baja</span></td></tr></table></div>
-</div>
-<footer>
-Conclusión honesta: el único edge real validado es pequeño y lento. Nada justifica meter dinero real todavía.<br>
-Regenerar: <code>python3 scripts/build_master_dashboard.py</code>
-</footer>
-</body></html>
+    <svg class="curve" viewBox="0 0 980 230" preserveAspectRatio="none" role="img" aria-label="Curva equity"><line x1="0" y1="136.0" x2="980" y2="136.0" class="base-line"/><polygon points="0,230 0.0,136.0 81.7,170.6 163.3,186.4 245.0,197.3 326.7,185.5 408.3,152.8 490.0,37.9 571.7,73.0 653.3,55.3 735.0,32.7 816.7,62.3 898.3,73.8 980.0,74.4 980,230" fill="#43d18d" opacity="0.11"/><polyline points="0.0,136.0 81.7,170.6 163.3,186.4 245.0,197.3 326.7,185.5 408.3,152.8 490.0,37.9 571.7,73.0 653.3,55.3 735.0,32.7 816.7,62.3 898.3,73.8 980.0,74.4" fill="none" stroke="#43d18d" stroke-width="3"/><circle cx="980.0" cy="74.4" r="5" fill="#43d18d"/></svg>
+  </div>
+  <div class="kpi-grid"><div class="kpi"><span class="label">Equity cerrada</span><span class="value pos">141.30 €</span><span class="detail">+0.93%</span></div><div class="kpi"><span class="label">Marcado vivo</span><span class="value pos">141.30 €</span><span class="detail">incluye +0.00€ abierto</span></div><div class="kpi"><span class="label">Cerradas</span><span class="value ">11</span><span class="detail">19 para validar</span></div><div class="kpi"><span class="label">Win rate</span><span class="value ">45%</span><span class="detail">objetivo técnico ~55%</span></div><div class="kpi"><span class="label">Abiertas</span><span class="value ">6/6</span><span class="detail">cap simultaneo</span></div><div class="kpi"><span class="label">Profit factor</span><span class="value ">1.34</span><span class="detail">avg +0.52%</span></div><div class="kpi"><span class="label">Mejor / peor</span><span class="value ">+13.9% / -4.2%</span><span class="detail">DD -0.9%</span></div><div class="kpi"><span class="label">Realizado</span><span class="value pos">+1.06€</span><span class="detail">solo cerradas</span></div></div>
+</section>
+<section class="panel validation">
+  <div><span class="label">Validación</span><span class="value">11/30</span></div>
+  <div><div class="progress"><div class="bar"></div></div><div class="note">La muestra sigue siendo pequeña; hasta 30 cerradas no se considera una señal operable con dinero real.</div></div>
+  <div class="value pos">+1.06€</div>
+</section>
+<section class="sections">
+  <div>
+    <div class="panel"><h2>POSICIONES ABIERTAS</h2><div class="table-wrap"><table><tr><th>Par</th><th>Dir</th><th>Entrada</th><th>Actual</th><th>Ret</th><th>No realiz.</th><th>Stop</th><th>Tiempo</th></tr><tr><td><strong>BTCUSDT</strong></td><td class="neg">SHORT</td><td>59777.09650</td><td class="muted">sin precio</td><td class="muted">-</td><td class="muted">-</td><td>62168.18036 <span class="muted">4.0%</span></td><td>23h <span class="muted">/1h</span></td></tr><tr><td><strong>AVAXUSDT</strong></td><td class="neg">SHORT</td><td>6.54073</td><td class="muted">sin precio</td><td class="muted">-</td><td class="muted">-</td><td>6.80236 <span class="muted">4.0%</span></td><td>22h <span class="muted">/2h</span></td></tr><tr><td><strong>INJUSDT</strong></td><td class="pos">LONG</td><td>4.81941</td><td class="muted">sin precio</td><td class="muted">-</td><td class="muted">-</td><td>4.62663 <span class="muted">4.0%</span></td><td>4h <span class="muted">/20h</span></td></tr><tr><td><strong>LTCUSDT</strong></td><td class="pos">LONG</td><td>42.82140</td><td class="muted">sin precio</td><td class="muted">-</td><td class="muted">-</td><td>41.10854 <span class="muted">4.0%</span></td><td>4h <span class="muted">/20h</span></td></tr><tr><td><strong>SUIUSDT</strong></td><td class="neg">SHORT</td><td>0.70375</td><td class="muted">sin precio</td><td class="muted">-</td><td class="muted">-</td><td>0.73190 <span class="muted">4.0%</span></td><td>4h <span class="muted">/20h</span></td></tr><tr><td><strong>ADAUSDT</strong></td><td class="pos">LONG</td><td>0.14647</td><td class="muted">sin precio</td><td class="muted">-</td><td class="muted">-</td><td>0.14061 <span class="muted">4.0%</span></td><td>3h <span class="muted">/21h</span></td></tr></table></div></div>
+    <div class="panel"><h2>ULTIMAS CERRADAS</h2><div class="table-wrap"><table><tr><th>Par</th><th>Dir</th><th>Ret</th><th>P&amp;L</th><th>Equity</th></tr><tr><td><strong>ADAUSDT</strong></td><td>LONG</td><td class="neg">-1.44%</td><td class="neg">-0.26€</td><td>141.30€</td></tr><tr><td><strong>ADAUSDT</strong></td><td>LONG</td><td class="neg">-1.38%</td><td class="neg">-0.24€</td><td>141.31€</td></tr><tr><td><strong>SEIUSDT</strong></td><td>LONG</td><td class="neg">-3.51%</td><td class="neg">-0.62€</td><td>141.56€</td></tr><tr><td><strong>OPUSDT</strong></td><td>SHORT</td><td class="pos">+2.69%</td><td class="pos">+0.48€</td><td>142.18€</td></tr><tr><td><strong>INJUSDT</strong></td><td>LONG</td><td class="pos">+2.11%</td><td class="pos">+0.37€</td><td>141.70€</td></tr><tr><td><strong>AVAXUSDT</strong></td><td>SHORT</td><td class="neg">-4.17%</td><td class="neg">-0.74€</td><td>141.33€</td></tr><tr><td><strong>INJUSDT</strong></td><td>LONG</td><td class="pos">+13.91%</td><td class="pos">+2.43€</td><td>142.07€</td></tr><tr><td><strong>ADAUSDT</strong></td><td>LONG</td><td class="pos">+3.98%</td><td class="pos">+0.69€</td><td>139.64€</td></tr><tr><td><strong>XRPUSDT</strong></td><td>LONG</td><td class="pos">+1.43%</td><td class="pos">+0.25€</td><td>138.95€</td></tr><tr><td><strong>ETHUSDT</strong></td><td>SHORT</td><td class="neg">-1.32%</td><td class="neg">-0.23€</td><td>138.71€</td></tr><tr><td><strong>BTCUSDT</strong></td><td>SHORT</td><td class="neg">-1.93%</td><td class="neg">-0.34€</td><td>138.93€</td></tr><tr><td><strong>AVAXUSDT</strong></td><td>SHORT</td><td class="neg">-4.17%</td><td class="neg">-0.73€</td><td>139.27€</td></tr></table></div></div>
+  </div>
+  <div>
+    <div class="panel"><h2>POSICIONAMIENTO FUTURES</h2><div class="table-wrap"><table><tr><th>Par</th><th>Mark</th><th>Retail L/S</th><th>Top L/S</th><th>Funding</th><th>Lectura</th></tr><tr><td><strong>SEIUSDT</strong></td><td>0.050568</td><td>0.88</td><td>1.07</td><td>-0.0040%</td><td class="muted">neutral</td></tr><tr><td><strong>TIAUSDT</strong></td><td>0.37619</td><td>1.57</td><td>1.63</td><td>+0.0005%</td><td class="neg">retail largo</td></tr><tr><td><strong>ARBUSDT</strong></td><td>0.074475</td><td>1.02</td><td>1.30</td><td>+0.0039%</td><td class="muted">neutral</td></tr><tr><td><strong>OPUSDT</strong></td><td>0.1016</td><td>1.72</td><td>1.34</td><td>+0.0023%</td><td class="neg">retail largo</td></tr><tr><td><strong>APTUSDT</strong></td><td>0.59226</td><td>0.99</td><td>2.65</td><td>+0.0027%</td><td class="muted">neutral</td></tr><tr><td><strong>SUIUSDT</strong></td><td>0.70263</td><td>2.21</td><td>2.18</td><td>+0.0016%</td><td class="neg">retail largo</td></tr><tr><td><strong>INJUSDT</strong></td><td>4.8111</td><td>0.72</td><td>1.21</td><td>-0.0018%</td><td class="muted">neutral</td></tr><tr><td><strong>NEARUSDT</strong></td><td>1.8895</td><td>0.84</td><td>1.92</td><td>-0.0020%</td><td class="muted">neutral</td></tr><tr><td><strong>ATOMUSDT</strong></td><td>1.5943</td><td>1.03</td><td>1.78</td><td>-0.0140%</td><td class="muted">neutral</td></tr><tr><td><strong>DOTUSDT</strong></td><td>0.83254</td><td>1.53</td><td>2.15</td><td>-0.0106%</td><td class="neg">retail largo</td></tr><tr><td><strong>LTCUSDT</strong></td><td>42.707</td><td>2.22</td><td>2.00</td><td>-0.0029%</td><td class="neg">retail largo</td></tr><tr><td><strong>LINKUSDT</strong></td><td>7.3693</td><td>1.65</td><td>2.09</td><td>+0.0018%</td><td class="neg">retail largo</td></tr><tr><td><strong>AVAXUSDT</strong></td><td>6.524</td><td>2.27</td><td>1.57</td><td>+0.0086%</td><td class="neg">retail largo</td></tr><tr><td><strong>ADAUSDT</strong></td><td>0.1465</td><td>1.91</td><td>1.14</td><td>-0.0009%</td><td class="neg">retail largo</td></tr></table></div></div>
+    <div class="panel"><h2>REGLAS ACTIVAS</h2><table><tr><td>Capital base</td><td>140.00 €</td></tr><tr><td>Máx posiciones</td><td>6</td></tr><tr><td>Stop por posición</td><td>4%</td></tr><tr><td>Hold máximo</td><td>24h</td></tr><tr><td>Validación mínima</td><td>30 cerradas</td></tr></table></div>
+  </div>
+</section>
+<div class="footer">Conclusión operativa: solo God Candidate queda visible hasta que el resto vuelva a tener datos fiables en nube.</div>
+</main></body></html>
